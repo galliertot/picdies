@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PicDies</string>
+    <string name="title_home">Accueil</string>
+    <string name="title_wishlist">Liste des envies</string>
+    <string name="title_account">Mon compte</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

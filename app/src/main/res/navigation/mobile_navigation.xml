@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.rahsa.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/home_to_connexion"
+            app:destination="@id/navigation_connexion" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_wishlist"
+        android:name="com.example.rahsa.dashboard.WishlistFragment"
+        android:label="@string/title_wishlist"
+        tools:layout="@layout/fragment_wishlist" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_connexion"
+        android:name="com.example.rahsa.account.ConnexionFragment"
+        android:label="Connexion"
+        tools:layout="@layout/fragment_connexion" >
+        <action
+            android:id="@+id/connexion_to_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/connexion_to_inscription"
+            app:destination="@id/navigation_inscription" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_inscription"
+        android:name="com.example.rahsa.account.InscriptionFragment"
+        android:label="Inscription"
+        tools:layout="@layout/fragment_inscription" >
+        <action
+            android:id="@+id/inscription_to_connexion"
+            app:destination="@id/navigation_connexion" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.example.rahsa.account.AccountFragment"
+        android:label="Mon compte"
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/account_to_connexion"
+            app:destination="@id/navigation_connexion" />
+    </fragment>
+</navigation>
