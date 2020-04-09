@@ -1,4 +1,4 @@
-package com.example.rahsa.adapholder;
+package com.example.rahsa.wishlist.adapholder;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
@@ -17,6 +17,7 @@ import com.squareup.picasso.Picasso;
 
 public class ViewHolderWishlist extends RecyclerView.ViewHolder implements View.OnClickListener {
     public ImageView photo;
+    public TextView likeClothes;
     public TextView link;
     public FloatingActionButton shareButton;
     public AdaptateurWishlist.OnRecyclerListenner recyclerListener;
@@ -30,6 +31,7 @@ public class ViewHolderWishlist extends RecyclerView.ViewHolder implements View.
         super(v);
         db = DataBaseApp.getInstance(v.getContext());
         photo = (ImageView) v.findViewById(R.id.photo);
+        likeClothes = v.findViewById(R.id.clothesLike);
         link = (TextView) v.findViewById(R.id.link);
         shareButton = (FloatingActionButton) v.findViewById(R.id.shareButton);
         this.recyclerListener = recyclerListenner;
@@ -55,6 +57,8 @@ public class ViewHolderWishlist extends RecyclerView.ViewHolder implements View.
                     shareAction(v, clothes);
                 }
             } );
+            likeClothes.setText(" Aimé par " + db.wishListDAO().getLikeClothes((int)clothes.get_id()).toString() + " personnes");
+            likeClothes.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_favorite_black_24dp, 0, 0, 0 );
     }
 
     @Override

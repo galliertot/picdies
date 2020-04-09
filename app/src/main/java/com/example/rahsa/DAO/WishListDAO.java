@@ -28,5 +28,8 @@ public interface WishListDAO {
     @Query("SELECT * FROM Wishlist WHERE user=:user")
     List<WishList> getWishlistFromUser(int user);
 
+    @Query("SELECT COUNT(*) FROM WishList WHERE clothes=:clothes")
+    Integer getLikeClothes(int clothes);
+
 
 }

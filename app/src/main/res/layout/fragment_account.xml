@@ -21,8 +21,9 @@
         android:id="@+id/account_pseudo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:text="Pseudo"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,36 +63,21 @@
         app:layout_constraintTop_toBottomOf="@+id/account_title_mail" />
 
     <TextView
-        android:id="@+id/account_title_genre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/border_input"
-        android:paddingLeft="5dp"
-        android:paddingBottom="5dp"
-        android:text="Genre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/account_mail" />
-
-    <EditText
         android:id="@+id/account_genre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
         android:background="@android:color/transparent"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/account_title_genre" />
+        app:layout_constraintTop_toBottomOf="@+id/account_pseudo" />
 
     <TextView
         android:id="@+id/account_title_password"
@@ -99,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/border_input"
@@ -107,9 +93,9 @@
         android:paddingBottom="5dp"
         android:text="Mot de passe"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/account_genre" />
+        app:layout_constraintTop_toBottomOf="@+id/account_mail" />
 
     <EditText
         android:id="@+id/account_password"
@@ -124,6 +110,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/account_title_password" />
+
+    <Button
+        android:id="@+id/btnModifAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@color/design_default_color_primary"
+        android:gravity="center"
+        android:text="Mettre à jour"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_password"
+        app:layout_constraintVertical_bias="0.144" />
 
     <Button
         android:id="@+id/btnToDeconnexion"
@@ -141,5 +146,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/account_password" />
+        app:layout_constraintTop_toBottomOf="@+id/btnModifAccount"
+        app:layout_constraintVertical_bias="0.673" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,20 +1,18 @@
-package com.example.rahsa.dashboard;
+package com.example.rahsa.wishlist;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rahsa.GlobalVariable;
 import com.example.rahsa.R;
-import com.example.rahsa.adapholder.AdaptateurWishlist;
+import com.example.rahsa.wishlist.adapholder.AdaptateurWishlist;
 import com.example.rahsa.database.DataBaseApp;
 import com.example.rahsa.entities.WishList;
 
@@ -27,6 +25,7 @@ public class WishlistFragment extends Fragment implements AdaptateurWishlist.OnR
     private RecyclerView mRecyclerView;
     private AdaptateurWishlist monAdapter;
     private List<WishList> wishListArrayList;
+
 
 
 

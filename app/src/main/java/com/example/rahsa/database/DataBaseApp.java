@@ -7,12 +7,13 @@ import androidx.room.RoomDatabase;
 import com.example.rahsa.DAO.*;
 import com.example.rahsa.entities.*;
 
-@Database(entities = {User.class, Clothes.class, WishList.class, Swap.class}, version = 5)
+@Database(entities = {User.class, Clothes.class, WishList.class, Swap.class, Categorie.class}, version = 6)
 public abstract class DataBaseApp extends RoomDatabase {
     public abstract UserDAO userDAO();
     public abstract ClothesDAO clothesDAO();
     public abstract WishListDAO wishListDAO();
     public abstract SwapDAO swapDAO();
+    public abstract CategorieDAO categorieDAO();
 
 
     private static DataBaseApp instance = null;

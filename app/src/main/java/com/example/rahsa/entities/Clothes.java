@@ -20,7 +20,7 @@ public class Clothes {
     private String photo;
 
     @ColumnInfo(name = "categorie")
-    private String categorie;
+    private int categorie;
 
     @ColumnInfo(name = "link")
     private String link;
@@ -32,7 +32,7 @@ public class Clothes {
     @PrimaryKey(autoGenerate = true)
     public long _id;
 
-    public Clothes(String nom, int prix, String photo, String categorie, String link, String genre) {
+    public Clothes(String nom, int prix, String photo, int categorie, String link, String genre) {
         this.nom = nom;
         this.prix = prix;
         this.photo = photo;
@@ -65,11 +65,11 @@ public class Clothes {
         this.photo = photo;
     }
 
-    public String getCategorie() {
+    public int getCategorie() {
         return categorie;
     }
 
-    public void setCategorie(String categorie) {
+    public void setCategorie(int categorie) {
         this.categorie = categorie;
     }
 

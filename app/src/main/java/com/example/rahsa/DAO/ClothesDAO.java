@@ -35,6 +35,6 @@ public interface ClothesDAO {
     @Query("SELECT * FROM Clothes WHERE genre=:genre")
     List<Clothes> getClothesFromGenre(String genre);
 
-    @Query("SELECT * FROM Clothes WHERE _id not in (SELECT clothes from swap where user=:user)")
-    List<Clothes> getClothesNotSwap(int user);
+    @Query("SELECT * FROM Clothes WHERE _id not in (SELECT clothes from swap where user=:user) and genre=:genre")
+    List<Clothes> getClothesNotSwap(int user, String genre);
 }
