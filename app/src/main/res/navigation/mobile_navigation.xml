@@ -20,6 +20,12 @@
         android:name="com.example.rahsa.wishlist.WishlistFragment"
         android:label="@string/title_wishlist"
         tools:layout="@layout/fragment_wishlist" >
+        <action
+            android:id="@+id/wishlist_to_filterwishlist"
+            app:destination="@id/navigation_wishlist" />
+        <action
+            android:id="@+id/wishlist_to_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 
     <fragment

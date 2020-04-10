@@ -1,7 +1,9 @@
 package com.example.rahsa.wishlist.adapholder;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rahsa.R;
@@ -14,32 +16,31 @@ import java.util.List;
 //import static model.bar.ViewHolderWishlist.makeUnselectedItem;
 
 
-public class AdaptateurWishlist extends RecyclerView.Adapter<ViewHolderWishlist> {
+public class AdaptateurCategorie extends RecyclerView.Adapter<ViewHolderCategorie> {
     // FOR DATA
-    private List<WishList> listWishlist;
+    private List<Categorie> listCategorie;
     private OnRecyclerListenner recyclerListenner;
-    private Categorie categorie;
     // CONSTRUCTOR
-    public AdaptateurWishlist(List<WishList> listWishlistAdd, OnRecyclerListenner recyclerListenner) {
-        this.listWishlist = listWishlistAdd;
+    public AdaptateurCategorie(List<Categorie> listCategorieAdd, OnRecyclerListenner recyclerListenner) {
+        this.listCategorie = listCategorieAdd;
         this.recyclerListenner = recyclerListenner;
     }
     @Override
-    public ViewHolderWishlist onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolderCategorie onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.item_list_wishlist, parent, false);
-        return new ViewHolderWishlist(view, recyclerListenner);
+        View view = inflater.inflate(R.layout.item_list_categorie, parent, false);
+        return new ViewHolderCategorie(view, recyclerListenner);
     }
     @Override
-    public void onBindViewHolder(ViewHolderWishlist viewHolder, int position) {
-        viewHolder.updateWishlist(this.listWishlist.get(position));
+    public void onBindViewHolder(ViewHolderCategorie viewHolder, int position) {
+        viewHolder.updateCategorie(this.listCategorie.get(position));
     }
     // RETURN THE TOTAL COUNT OF ITEMS IN THE LIST
     @Override
     public int getItemCount() {
-        return this.listWishlist.size();
+        return this.listCategorie.size();
     }
     public interface  OnRecyclerListenner{
-        void onRecyclerClick(int position );
+        void onRecyclerClick(int position);
     }
 }

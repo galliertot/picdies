@@ -4,10 +4,13 @@ import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rahsa.R;
 import com.example.rahsa.database.DataBaseApp;
+import com.example.rahsa.entities.Categorie;
 import com.example.rahsa.entities.Clothes;
 import com.example.rahsa.entities.WishList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,8 +29,6 @@ public class ViewHolderWishlist extends RecyclerView.ViewHolder implements View.
 
     public ViewHolderWishlist(View v, AdaptateurWishlist.OnRecyclerListenner recyclerListenner)
     {
-
-
         super(v);
         db = DataBaseApp.getInstance(v.getContext());
         photo = (ImageView) v.findViewById(R.id.photo);
@@ -40,6 +41,7 @@ public class ViewHolderWishlist extends RecyclerView.ViewHolder implements View.
 
     public void updateWishlist(WishList wishList)
     {
+
         final Clothes clothes = db.clothesDAO().getClothes(wishList.getClothes());
 
             Picasso.get().load(clothes.getPhoto()).into(photo);
