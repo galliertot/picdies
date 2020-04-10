@@ -1,11 +1,13 @@
 package com.example.rahsa.home;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,7 +32,10 @@ public class HomeFragment extends Fragment {
     private FloatingActionButton checkButton;
     private FloatingActionButton closeButton;
     private ImageView photo;
-
+    private TextView price;
+    private TextView categorie;
+    private TextView name;
+    private ImageView logo;
     private GlobalVariable sharedData = GlobalVariable.getInstance();
     private ArrayList<Clothes> clothesArrayList;
     private DataBaseApp db;
@@ -56,6 +61,12 @@ public class HomeFragment extends Fragment {
             closeButton = (FloatingActionButton) root.findViewById(R.id.closeButton) ;
             photo = (ImageView) root.findViewById(R.id.photoViewHome);
 
+            price = root.findViewById(R.id.priceClothes);
+            name = root.findViewById(R.id.nameClothes);
+            categorie = root.findViewById(R.id.categorieClothes);
+            logo = root.findViewById(R.id.logoPicdiesHome);
+            logo.setImageResource(R.drawable.title_picdies_android);
+
             //variable declare
             if(db.clothesDAO().getAllClothes().isEmpty())
             {
@@ -77,8 +88,6 @@ public class HomeFragment extends Fragment {
             }
 
             clothesArrayList = new ArrayList<>();
-
-            //recupere clothes
 
             clothesArrayList.addAll(db.clothesDAO().getClothesNotSwap((int)sharedData.getUserConnected().get_id(), sharedData.getUserConnected().getGenre()));
 
@@ -102,12 +111,16 @@ public class HomeFragment extends Fragment {
         changClothes(id+1);
     }
 
+    @SuppressLint("RestrictedApi")
     public void changClothes(final int positionListe)
     {
         if(positionListe + 1 <= clothesArrayList.size() )
         {
-            Picasso.get().load(clothesArrayList.get(positionListe).getPhoto()).into(photo);
-
+            Clothes clothes = clothesArrayList.get(positionListe);
+            Picasso.get().load(clothes.getPhoto()).fit().centerCrop().into(photo);
+            name.setText(clothes.getNom());
+            price.setText(Integer.toString(clothes.getPrix())+ "€");
+            categorie.setText(db.categorieDAO().getCategorie(clothes.getCategorie()).getNom());
             checkButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -125,6 +138,9 @@ public class HomeFragment extends Fragment {
         else
         {
             photo.setImageResource(R.drawable.nothingmore);
+            name.setVisibility(View.GONE);
+            categorie.setVisibility(View.GONE);
+            price.setVisibility(View.GONE);
             closeButton.setVisibility(View.GONE);
             checkButton.setVisibility(View.GONE);
         }

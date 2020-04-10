@@ -1,9 +1,11 @@
 package com.example.rahsa.wishlist.adapholder;
 
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rahsa.R;
@@ -31,9 +33,10 @@ public class AdaptateurCategorie extends RecyclerView.Adapter<ViewHolderCategori
         View view = inflater.inflate(R.layout.item_list_categorie, parent, false);
         return new ViewHolderCategorie(view, recyclerListenner);
     }
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onBindViewHolder(ViewHolderCategorie viewHolder, int position) {
-        viewHolder.updateCategorie(this.listCategorie.get(position));
+        viewHolder.updateCategorie(this.listCategorie.get(position), viewHolder.itemView.getContext());
     }
     // RETURN THE TOTAL COUNT OF ITEMS IN THE LIST
     @Override

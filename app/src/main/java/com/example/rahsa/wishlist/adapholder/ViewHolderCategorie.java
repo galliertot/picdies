@@ -1,13 +1,19 @@
 package com.example.rahsa.wishlist.adapholder;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,11 +47,12 @@ public class ViewHolderCategorie extends RecyclerView.ViewHolder implements View
         v.setOnClickListener(this);
     }
 
-    public void updateCategorie(final Categorie categorie)
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void updateCategorie(final Categorie categorie, Context context)
     {
-        final GlobalVariable sharedData = GlobalVariable.getInstance();
         this.button.setText(categorie.getNom());
         this.button.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
@@ -53,6 +60,12 @@ public class ViewHolderCategorie extends RecyclerView.ViewHolder implements View
                 Navigation.findNavController(v).navigate(R.id.wishlist_to_filterwishlist, bundle);
             }
         } );
+
+        if(categorie.getFilter_on())
+        {
+            this.button.setBackground(ContextCompat.getDrawable(context, R.drawable.border_button_wishlist_actif));
+            this.button.setTextColor(Color.WHITE);
+        }
 
     }
 

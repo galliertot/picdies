@@ -60,6 +60,14 @@ public class WishlistFragment extends Fragment implements AdaptateurWishlist.OnR
         mRecyclerView=(RecyclerView)root.findViewById(R.id.recycler_view_categorie);
         categorieArrayList = new ArrayList<Categorie>();
         categorieArrayList.addAll(db.categorieDAO().getAllCategorie());
+        if(getArguments() != null)
+        {
+            for (Categorie categorie: categorieArrayList
+                 ) {
+                if(categorie.getNom().equals(getArguments().getString("categorie")))
+                    categorie.setFilter_on(true);
+            }
+        }
         monAdapterCategorie = new AdaptateurCategorie(categorieArrayList,this);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         mRecyclerView.setAdapter(monAdapterCategorie);

@@ -14,8 +14,19 @@ public class Categorie {
     @PrimaryKey(autoGenerate = true)
     public long _id;
 
+    private Boolean filter_on;
+
+    public Boolean getFilter_on() {
+        return filter_on;
+    }
+
+    public void setFilter_on(Boolean filter_on) {
+        this.filter_on = filter_on;
+    }
+
     public Categorie(String nom) {
         this.nom = nom;
+        this.filter_on = false;
     }
 
     public String getNom() {
